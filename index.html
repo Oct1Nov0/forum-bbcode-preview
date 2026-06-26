@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>论坛体 BBCode 预览器</title>
+  <link rel="icon" href="./assets/icon.svg">
+  <link rel="stylesheet" href="./css/editor.css">
+  <link rel="stylesheet" href="./css/preview.css">
+  <link rel="stylesheet" href="./css/mobile.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-title">
+      <img src="./assets/logo.svg" alt="" class="logo">
+      <span>论坛体 BBCode 预览器</span>
+    </div>
+
+    <div class="toolbar">
+      <button id="copyBtn" type="button">复制 BBCode</button>
+      <button id="clearBtn" type="button">清空</button>
+      <button id="themeBtn" type="button">深色模式</button>
+
+      <label class="select-label">
+        字号
+        <select id="fontSizeSelect">
+          <option value="15">小</option>
+          <option value="16" selected>中</option>
+          <option value="18">大</option>
+          <option value="20">特大</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="mobile-tabs" aria-label="移动端切换">
+      <button id="editTab" class="tab active" type="button">编辑</button>
+      <button id="previewTab" class="tab" type="button">预览</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section id="editorPane" class="editor-pane">
+      <div class="pane-title">
+        <span>源码</span>
+        <span id="draftStatus">已自动保存</span>
+      </div>
+      <textarea id="editor" spellcheck="false"></textarea>
+    </section>
+
+    <section id="previewPane" class="preview-pane hidden-mobile">
+      <div class="pane-title">
+        <span>平台效果预览</span>
+        <span id="stats">0楼 · 0字</span>
+      </div>
+      <div id="previewScroll" class="preview-scroll">
+        <article id="preview" class="platform-preview"></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/storage.js"></script>
+  <script src="./js/parser.js"></script>
+  <script src="./js/preview.js"></script>
+  <script src="./js/editor.js"></script>
+  <script src="./js/shortcuts.js"></script>
+  <script src="./js/mobile.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
