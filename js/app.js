@@ -1,15 +1,17 @@
-const SAMPLE_TEXT = `[color=gray][b]1楼　仓鼠赛高（楼主）[/b]　03/02 23:51[/color]
-不点名，懂的都懂，一直病殃殃看着没精神的那个。
-今天跟一个行政的朋友聊天听说的，他递辞呈了，正在系统里走OA。
-我先开瓶汽水庆祝一下。[br]
-[color=gray][b]2楼　奔跑的小白杨[/b]　03/02 23:58[/color]
-沙发。
-秒解码，上个月我精神力超载，看疏导申请的推荐栏他排第一就申请了，一直排到昨天才轮上。
-结果到那一句安慰没有，还被他嘲讽。[br]
-[color=gray][b]3楼　吃瓜群众丙[/b]　03/03 00:23[/color]
-[blockquote][size=14]2楼 奔跑的小白杨 03/02 23:58
-结果到那一句安慰没有，还被他嘲讽。[/size][/blockquote]
-话说他吃这么多差评还能回回推荐栏第一，有黑幕？`;
+const SAMPLE_TEXT = `[color=gray][b]1楼　示例用户[/b]　01/01 12:00[/color]
+这里是默认预览文本。
+你可以在左侧输入平台支持的 BBCode，右侧会即时显示接近发布后的效果。[br]
+[color=gray][b]2楼　路过的人[/b]　01/01 12:05[/color]
+这是第二层楼。
+
+[blockquote][size=14]1楼 示例用户 01/01 12:00
+这里是默认预览文本。[/size][/blockquote]
+
+引用内容会显示成平台里的引用样式。[br]
+[color=gray][b]3楼　测试账号[/b]　01/01 12:10[/color]
+支持基础格式，比如 [b]加粗[/b]、[i]斜体[/i]、[u]下划线[/u]、[color=gray]灰色文字[/color]。
+
+每一楼之间请用 [br] 分隔。`;
 
 document.addEventListener("DOMContentLoaded", () => {
   const editor = document.getElementById("editor");
