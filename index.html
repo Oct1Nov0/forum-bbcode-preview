@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <title>论坛体 BBCode 预览器</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-title">
+      <span class="logo-text">BB</span>
+      <span>论坛体 BBCode 预览器</span>
+    </div>
+
+    <button id="toolDrawerBtn" class="drawer-toggle top-drawer-toggle" type="button">工具栏 ▾</button>
+
+    <div id="toolDrawer" class="toolbar toolbar-drawer">
+      <button id="copyBtn" type="button">复制 BBCode</button>
+      <button id="clearBtn" type="button">清空</button>
+      <button id="themeBtn" type="button">深色模式</button>
+
+      <label class="select-label">
+        字号
+        <select id="fontSizeSelect">
+          <option value="15">小</option>
+          <option value="16" selected>中</option>
+          <option value="18">大</option>
+          <option value="20">特大</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="mobile-tabs" aria-label="移动端切换">
+      <button id="editTab" class="tab active" type="button">编辑</button>
+      <button id="previewTab" class="tab" type="button">预览</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section id="editorPane" class="editor-pane">
+      <div class="pane-title">
+        <span>可视化编辑</span>
+        <span id="draftStatus">已自动保存</span>
+      </div>
+
+      <div class="mode-tabs">
+        <button id="visualModeBtn" class="active" type="button">可视化</button>
+        <button id="sourceModeBtn" type="button">源码</button>
+      </div>
+
+      <div id="visualPanel" class="visual-panel">
+        <div class="visual-toolbar">
+          <button type="button" data-cmd="bold">加粗</button>
+          <button type="button" data-cmd="italic">斜体</button>
+          <button type="button" data-cmd="underline">下划线</button>
+          <button type="button" data-cmd="strike">删除线</button>
+          <button type="button" data-cmd="gray">灰字</button>
+          <button type="button" data-cmd="quote">引用</button>
+          <button type="button" data-cmd="link">链接</button>
+          <button type="button" data-cmd="image">图片</button>
+          <button id="addFloorBtn" type="button">新增楼层</button>
+        </div>
+
+        <div class="batch-drawer">
+          <button id="batchDrawerBtn" class="drawer-toggle batch-drawer-toggle" type="button">批量生成楼层 ▾</button>
+          <div id="batchDrawerContent" class="batch-tools">
+            <label>
+              新增
+              <input id="batchCountInput" type="number" min="1" max="300" value="3">
+              楼
+            </label>
+            <label>
+              默认用户名
+              <input id="batchNameInput" type="text" value="用户名">
+            </label>
+            <button id="generateFloorsBtn" type="button">按最后一楼往后生成</button>
+            <button id="rerollTimeBtn" type="button">按第一楼重排时间</button>
+            <span class="batch-hint">每层比上一层随机晚 1-10 分钟，插入楼层也会参与重排。</span>
+          </div>
+        </div>
+
+        <div id="visualList" class="visual-list"></div>
+      </div>
+
+      <div id="sourcePanel" class="source-panel hidden">
+        <div class="source-actions">
+          <button id="importSourceBtn" type="button">从源码导入到可视化</button>
+          <span>高级修改时可以用源码模式。</span>
+        </div>
+        <textarea id="sourceEditor" spellcheck="false"></textarea>
+      </div>
+    </section>
+
+    <section id="previewPane" class="preview-pane hidden-mobile">
+      <div class="pane-title">
+        <span>平台效果预览</span>
+        <span id="stats">0楼 · 0字</span>
+      </div>
+      <div id="previewScroll" class="preview-scroll">
+        <article id="preview" class="platform-preview"></article>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
